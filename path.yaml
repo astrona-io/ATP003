@@ -1,0 +1,108 @@
+apiVersion: content.astrona.io/v1alpha1
+kind: TrainingPath
+metadata:
+  id: ATP003
+  slug: kyverno-certified-associate-kca
+  title: "Kyverno Certified Associate (KCA)"
+  description: >-
+    The Kyverno Certified Associate track: one course per exam domain —
+    Kyverno fundamentals, installation and upgrades, the Kyverno CLI, applying,
+    writing and managing policies — with readings and graded hands-on labs that
+    run on your own computer with the Astrona CLI.
+  version: "1.0.0"
+  language: "en"
+  authors:
+    - name: "Paris Nakita Kejser"
+      email: "paris@astrona.io"
+      company: "Astrona.io"
+  tags:
+    - "Kyverno"
+    - "Policy as Code"
+    - "Certification Preparation"
+    - "KCA"
+  license: "Apache-2.0"
+
+spec:
+  audience: "Kubernetes engineers preparing for the Kyverno Certified Associate exam."
+  difficulty: "Intermediate"
+
+  examPreparation:
+    enabled: true
+    title: "Kyverno Certified Associate (KCA)"
+    officialSyllabusUrl: "https://training.linuxfoundation.org/certification/kyverno-certified-associate-kca/"
+    examId: "KCA"
+    provider: "CNCF / The Linux Foundation"
+
+  prerequisites:
+    - "Working knowledge of Kubernetes resources, YAML and kubectl."
+    - "A computer that can run the Astrona CLI with Docker or Podman, for the labs."
+
+  learningOutcomes:
+    - "Explain how Kyverno enforces policy through admission control and background scans."
+    - "Install, configure and upgrade Kyverno, including high availability and RBAC."
+    - "Write validation, mutation, generation and image verification policies, with CEL where it fits."
+    - "Test policies with the Kyverno CLI and manage them with reports and exceptions."
+
+  # One stage per exam domain; the stage repositories name their domains exactly
+  # as the exam does (astrona-content exams/golden-kubestronaut/kca.yaml), and the
+  # weights follow the exam.
+  stages:
+    - id: "ATP003-STG001"
+      title: "Fundamentals of Kyverno"
+      description: "Kyverno policies and rules, their YAML manifests, admission controllers and policies shipped as OCI images."
+      weight: 18
+      content:
+        - ref: ATS007
+          repository: "https://github.com/astrona-io/ATS007"
+          path: "."
+          version: "1.0.0"
+
+    - id: "ATP003-STG002"
+      title: "Installation, Configuration, and Upgrades"
+      description: "Installing and configuring Kyverno with Helm, its CRDs, controller flags, RBAC, high-availability installations and upgrades."
+      weight: 18
+      content:
+        - ref: ATS008
+          repository: "https://github.com/astrona-io/ATS008"
+          path: "."
+          version: "1.0.0"
+
+    - id: "ATP003-STG003"
+      title: "Kyverno CLI"
+      description: "Installing the Kyverno CLI and using apply, test and jp to check policies before they reach a cluster."
+      weight: 12
+      content:
+        - ref: ATS009
+          repository: "https://github.com/astrona-io/ATS009"
+          path: "."
+          version: "1.0.0"
+
+    - id: "ATP003-STG004"
+      title: "Applying Policies"
+      description: "Applying policies in a cluster: resource selection and the settings every Kyverno rule shares."
+      weight: 10
+      content:
+        - ref: ATS010
+          repository: "https://github.com/astrona-io/ATS010"
+          path: "."
+          version: "1.0.0"
+
+    - id: "ATP003-STG005"
+      title: "Writing Policies"
+      description: "Validation, mutation, generation and verifyImages rules; preconditions, background scans, variables and API calls, JSON patches, autogen, cleanup policies and CEL."
+      weight: 32
+      content:
+        - ref: ATS011
+          repository: "https://github.com/astrona-io/ATS011"
+          path: "."
+          version: "1.0.0"
+
+    - id: "ATP003-STG006"
+      title: "Policy Management"
+      description: "Policy reports, policy exceptions and Kyverno's metrics."
+      weight: 10
+      content:
+        - ref: ATS012
+          repository: "https://github.com/astrona-io/ATS012"
+          path: "."
+          version: "1.0.0"
